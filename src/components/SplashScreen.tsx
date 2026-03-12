@@ -21,6 +21,10 @@ export default function SplashScreen() {
     const totalDuration = 1000; // 2.5 seconds
     const hideTimeout = setTimeout(() => {
       setIsVisible(false);
+      // Allow scrolling again after the exit animation completes (0.6s)
+      setTimeout(() => {
+        document.body.style.overflow = "";
+      }, 600);
     }, totalDuration);
 
     // Prevent scrolling while loading
@@ -29,7 +33,7 @@ export default function SplashScreen() {
     return () => {
       clearInterval(textInterval);
       clearTimeout(hideTimeout);
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     };
   }, []);
 
