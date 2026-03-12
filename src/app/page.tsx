@@ -16,11 +16,11 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <SkillsGrid />
         <Projects />
+        <SkillsGrid />
         <CPStats />
-        <Timeline />
         <Achievements />
+        <Timeline />
         <ContactForm />
       </main>
       <Footer />

@@ -98,9 +98,9 @@ export default function About() {
             {/* Highlights */}
             <div className="grid sm:grid-cols-3 gap-4 pt-4">
               {[
-                { icon: Code2, label: "Full-Stack", desc: "React · Node · Rust" },
-                { icon: Cpu, label: "Systems", desc: "Linux · Docker · Sandbox" },
-                { icon: Rocket, label: "AI / ML", desc: "Gemini · LLMs · Agents" },
+                { icon: Code2, label: "Full-Stack", desc: "React · Node · Rust . Next" },
+                { icon: Cpu, label: "Systems", desc: "Linux · Docker · Sandbox . AWS" },
+                { icon: Rocket, label: "AI / ML", desc: "LLMs · RAG" },
               ].map((item, i) => (
                 <motion.div
                   key={item.label}

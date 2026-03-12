@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import GlobalBackground from "@/components/GlobalBackground";
 import "./globals.css";
 
 const inter = Inter({
@@ -44,10 +45,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-[#09090B] text-[#D4D4D8]`}
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-[#09090B] text-[#D4D4D8] relative`}
       >
+        <GlobalBackground />
         <div className="noise-overlay" />
-        {children}
+        <div className="relative z-10 w-full h-full overflow-x-hidden">
+          {children}
+        </div>
       </body>
     </html>
   );

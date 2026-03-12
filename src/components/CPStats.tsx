@@ -15,22 +15,20 @@ const statCards: StatCardProps[] = [
     platform: "LeetCode",
     handle: "@pankajyadav",
     color: "#FFA116",
-    url: "https://leetcode.com/pankajyadav",
+    url: "https://leetcode.com/pankajyadav-dev",
     stats: [
       { label: "Problems Solved", value: "300+", max: 3000, current: 300 },
-      { label: "Contest Rating", value: "1650+", max: 3000, current: 1650 },
       { label: "Max Streak", value: "45 days", max: 365, current: 45 },
     ],
   },
   {
-    platform: "Codeforces",
-    handle: "@pankajyadav",
-    color: "#1F8ACB",
-    url: "https://codeforces.com/profile/pankajyadav",
+    platform: "GitHub",
+    handle: "@pankajyadav-dev",
+    color: "#2ea043", // GitHub green
+    url: "https://github.com/pankajyadav-dev",
     stats: [
-      { label: "Max Rating", value: "1400+", max: 3500, current: 1400 },
-      { label: "Problems Solved", value: "200+", max: 3000, current: 200 },
-      { label: "Contests", value: "30+", max: 100, current: 30 },
+      { label: "Repositories", value: "11+", max: 20, current: 11 },
+      { label: "Contributions (Year)", value: "700+", max: 1000, current: 720 },
     ],
   },
 ];
@@ -75,7 +73,7 @@ export default function CPStats() {
           className="mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-mono text-accent mb-2">
-            <span className="text-muted mr-2">04.</span>competitive_programming
+            <span className="text-muted mr-2">04.</span>stats_&_metrics
           </h2>
           <div className="h-px bg-gradient-to-r from-accent/50 to-transparent max-w-md" />
         </motion.div>

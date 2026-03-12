@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { details } from "framer-motion/client";
 import { GraduationCap } from "lucide-react";
 
 interface TimelineItem {
@@ -13,14 +14,20 @@ interface TimelineItem {
 const education: TimelineItem[] = [
   {
     degree: "B.Tech in Computer Science & Engineering",
-    institution: "Your University Name",
-    period: "2020 — 2024",
+    institution: "Lovely Professional University",
+    period: "2023 — present",
     details: [
       "Data Structures & Algorithms",
       "Operating Systems & Computer Networks",
       "Database Management Systems",
       "Machine Learning & AI Fundamentals",
     ],
+  },
+  {
+    degree: "Secondary & Senior Secondary Education",
+    institution: "The Trigat School",
+    period: "2020 — 2023",
+    details: []
   },
 ];
 
@@ -37,7 +44,7 @@ export default function Timeline() {
           className="mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-mono text-accent mb-2">
-            <span className="text-muted mr-2">05.</span>education
+            <span className="text-muted mr-2">06.</span>education
           </h2>
           <div className="h-px bg-gradient-to-r from-accent/50 to-transparent max-w-md" />
         </motion.div>
@@ -79,7 +86,7 @@ export default function Timeline() {
                 </div>
 
                 {/* Major Coursework */}
-                <div className="mt-4 ml-8">
+                {item.details.length >= 1 && <div className="mt-4 ml-8">
                   <p className="text-xs font-mono text-muted mb-2 uppercase tracking-wider">
                     Major Coursework
                   </p>
@@ -94,6 +101,7 @@ export default function Timeline() {
                     ))}
                   </div>
                 </div>
+                }
               </div>
             </motion.div>
           ))}

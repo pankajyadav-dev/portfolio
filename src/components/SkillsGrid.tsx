@@ -1,33 +1,68 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PiSimCardThin } from "react-icons/pi";
+import {
+  SiRust, SiTypescript, SiJavascript, SiCplusplus, SiPython,
+  SiNextdotjs, SiReact, SiNodedotjs, SiTailwindcss, SiPrisma,
+  SiDocker, SiRedis, SiPostgresql, SiMongodb, SiLinux, SiNginx,
+  SiGit, SiGithubactions, SiVercel, SiGnubash,
+  SiCloud66,
+  SiGooglecloudspanner,
+  SiClaude,
+  SiGooglecloud
+} from "react-icons/si";
 
-interface SkillCategory {
+interface Category {
   title: string;
   icon: string;
-  skills: string[];
+  skills: { name: string; Icon: React.ElementType }[];
 }
 
-const categories: SkillCategory[] = [
+const categories: Category[] = [
   {
     title: "Languages",
     icon: "⌘",
-    skills: ["Rust", "TypeScript", "JavaScript", "C++", "Python", "Java"],
+    skills: [
+      { name: "Rust", Icon: SiRust },
+      { name: "TypeScript", Icon: SiTypescript },
+      { name: "JavaScript", Icon: SiJavascript },
+      { name: "C++", Icon: SiCplusplus },
+    ],
   },
   {
-    title: "Frameworks",
+    title: "Frameworks / ORM",
     icon: "⚛",
-    skills: ["Next.js", "React", "Node.js", "Tailwind CSS", "Prisma", "Axum"],
+    skills: [
+      { name: "Next.js", Icon: SiNextdotjs },
+      { name: "React", Icon: SiReact },
+      { name: "Node.js", Icon: SiNodedotjs },
+      { name: "Tailwind CSS", Icon: SiTailwindcss },
+      { name: "Prisma", Icon: SiPrisma },
+    ],
   },
   {
     title: "Infrastructure",
     icon: "☁",
-    skills: ["Docker", "Redis", "PostgreSQL", "MongoDB", "Linux", "Nginx"],
+    skills: [
+      { name: "Docker", Icon: SiDocker },
+      { name: "Redis", Icon: SiRedis },
+      { name: "PostgreSQL", Icon: SiPostgresql },
+      { name: "MongoDB", Icon: SiMongodb },
+      { name: "Linux", Icon: SiLinux },
+      { name: "Nginx", Icon: SiNginx },
+      { name: "Aws", Icon: SiGooglecloud }
+    ],
   },
   {
     title: "Tools & Workflow",
     icon: "⚡",
-    skills: ["Git", "Zsh", "Turborepo", "Bun", "GitHub Actions", "Vercel"],
+    skills: [
+      { name: "Git", Icon: SiGit },
+      { name: "Zsh / Bash", Icon: SiGnubash },
+      { name: "GitHub Actions", Icon: SiGithubactions },
+      { name: "Vercel", Icon: SiVercel },
+    ],
   },
 ];
 
@@ -57,7 +92,7 @@ export default function SkillsGrid() {
           className="mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-mono text-accent mb-2">
-            <span className="text-muted mr-2">02.</span>tech_stack
+            <span className="text-muted mr-2">03.</span>tech_stack
           </h2>
           <div className="h-px bg-gradient-to-r from-accent/50 to-transparent max-w-md" />
         </motion.div>
@@ -88,18 +123,19 @@ export default function SkillsGrid() {
                   </h3>
                 </div>
 
-                {/* Code-style Tags */}
-                <div className="font-mono text-sm">
-                  <span className="text-muted">{"["}</span>
-                  <div className="flex flex-wrap gap-2 mt-2">
+                {/* Code-style Tags with Icons */}
+                <div className="font-mono text-sm leading-8">
+                  <span className="text-muted block mb-2">{"["}</span>
+                  <div className="flex flex-wrap gap-2 pl-4">
                     {cat.skills.map((skill, i) => (
                       <span
-                        key={skill}
-                        className="inline-flex items-center px-3 py-1.5 rounded-md bg-[#09090B] border border-border text-accent-bright text-xs font-mono hover:border-accent/50 hover:shadow-[0_0_10px_rgba(16,185,129,0.1)] transition-all cursor-default"
+                        key={skill.name}
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#09090B] border border-border text-foreground hover:text-accent-bright text-xs font-mono hover:border-accent/50 hover:shadow-[0_0_10px_rgba(16,185,129,0.1)] transition-all cursor-default"
                       >
-                        &apos;{skill}&apos;
+                        <skill.Icon className="w-3.5 h-3.5" />
+                        &apos;{skill.name}&apos;
                         {i < cat.skills.length - 1 && (
-                          <span className="text-muted ml-1">,</span>
+                          <span className="text-muted ml-0.5">,</span>
                         )}
                       </span>
                     ))}

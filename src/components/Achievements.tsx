@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Trophy, Award, ExternalLink } from "lucide-react";
 
 interface Achievement {
-  type: "achievement" | "certificate";
+  type: "achievement" | "certificate" | "Learning";
   title: string;
   description: string;
   link?: string;
@@ -21,7 +21,7 @@ const achievements: Achievement[] = [
     type: "achievement",
     title: "Competitive Programming",
     description:
-      "Solved 500+ algorithmic problems across LeetCode and Codeforces. Participated in 30+ contests.",
+      "Solved 300+ algorithmic problems across LeetCode and Codeforces.",
   },
   {
     type: "achievement",
@@ -30,7 +30,7 @@ const achievements: Achievement[] = [
       "Shipped multiple production-grade applications including a competitive programming platform and an AI-powered resume builder.",
   },
   {
-    type: "certificate",
+    type: "Learning",
     title: "Systems Programming in Rust",
     description:
       "Demonstrated proficiency in building low-level systems with Rust including process isolation, namespace management, and seccomp filtering.",
@@ -63,7 +63,7 @@ export default function Achievements() {
           className="mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-mono text-accent mb-2">
-            <span className="text-muted mr-2">06.</span>achievements
+            <span className="text-muted mr-2">05.</span>achievements
           </h2>
           <div className="h-px bg-gradient-to-r from-accent/50 to-transparent max-w-md" />
         </motion.div>

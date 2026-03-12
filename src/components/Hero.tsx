@@ -26,6 +26,28 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-accent/5 blur-[120px]" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        {/* Profile Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, type: "spring" }}
+          className="mb-8 flex justify-center"
+        >
+          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full p-1 border-2 border-accent/50 bg-card/50 backdrop-blur-sm shadow-[0_0_30px_rgba(16,185,129,0.15)] overflow-hidden group">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/profile.jpg" 
+              alt="Pankaj Yadav" 
+              className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500 bg-muted/20"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.onerror = null; // Prevent infinite loop if fallback fails
+                target.src = "https://ui-avatars.com/api/?name=Pankaj+Yadav&background=0D0D0D&color=10B981&size=256";
+              }}
+            />
+          </div>
+        </motion.div>
+
         {/* Terminal prompt */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,10 +88,11 @@ export default function Hero() {
                 2000,
                 "Building Scalable Systems",
                 2000,
-                "Crafting AI Tools",
+                "Crafting System Tools",
                 2000,
                 "Rust & TypeScript Enthusiast",
                 2000,
+                ""
               ]}
               wrapper="span"
               speed={40}
@@ -78,6 +101,16 @@ export default function Hero() {
             />
           </div>
         </motion.div>
+
+        {/* Professional Intro */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="text-secondary max-w-2xl mx-auto mb-10 text-base sm:text-lg leading-relaxed"
+        >
+          I build scalable, high-performance web applications and backend systems. Passionate about clean code, modern architecture, and solving complex problems with cutting-edge technologies.
+        </motion.p>
 
         {/* CTA Buttons */}
         <motion.div

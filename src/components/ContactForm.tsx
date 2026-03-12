@@ -10,9 +10,30 @@ export default function ContactForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulate sending — replace with your API endpoint
-    setTimeout(() => setStatus("sent"), 1500);
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name")?.toString() || "";
+    const email = formData.get("email")?.toString() || "";
+    const message = formData.get("message")?.toString() || "";
+
+    const text = `New Contact Form Submission\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const encodedText = encodeURIComponent(text);
+
+    // Option 1: Send via WhatsApp
+    // // Replace YOUR_PHONE_NUMBER with your actual number (e.g., "1234567890", without +, spaces, or dashes)
+    // const whatsappNumber = "9636902439";
+    // const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+    // window.open(whatsappUrl, "_blank");
+
+    // Option 2: Send via Email (mailto)
+    // Uncomment the lines below and replace with your email to use email instead
+    const emailAddress = "pankajy9636@gmail.com";
+    const mailtoUrl = `mailto:${emailAddress}?subject=Portfolio Contact from ${name}&body=${encodedText}`;
+    window.open(mailtoUrl, "_blank");
+
+    setStatus("sent");
     setTimeout(() => setStatus("idle"), 4000);
+    e.currentTarget.reset();
   };
 
   return (
@@ -54,6 +75,7 @@ export default function ContactForm() {
             </label>
             <input
               id="contact-name"
+              name="name"
               type="text"
               required
               placeholder="John Doe"
@@ -71,6 +93,7 @@ export default function ContactForm() {
             </label>
             <input
               id="contact-email"
+              name="email"
               type="email"
               required
               placeholder="john@example.com"
@@ -88,6 +111,7 @@ export default function ContactForm() {
             </label>
             <textarea
               id="contact-message"
+              name="message"
               required
               rows={5}
               placeholder="Your message..."

@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Globe } from "lucide-react";
+import { Github, Globe, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 interface ProjectCardProps {
+  id: string;
   title: string;
   description: string;
   techStack: string[];
@@ -11,9 +13,11 @@ interface ProjectCardProps {
   liveUrl?: string;
   highlight: string;
   index: number;
+  bgAnimation?: React.ReactNode;
 }
 
 export default function ProjectCard({
+  id,
   title,
   description,
   techStack,
@@ -21,6 +25,7 @@ export default function ProjectCard({
   liveUrl,
   highlight,
   index,
+  bgAnimation,
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -30,8 +35,15 @@ export default function ProjectCard({
       transition={{ duration: 0.5, delay: index * 0.15 }}
       className="group relative flex flex-col h-full rounded-xl border border-border bg-card/50 overflow-hidden hover:border-accent/50 transition-all duration-500"
     >
+      {/* Background Animation Container */}
+      {bgAnimation && (
+        <div className="absolute inset-0 z-0 overflow-hidden opacity-[0.1] group-hover:opacity-[0.2] transition-opacity duration-700 flex items-center justify-center pointer-events-none">
+          {bgAnimation}
+        </div>
+      )}
+
       {/* Hover neon glow */}
-      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+      <div className="absolute inset-0 z-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
           boxShadow: "0 0 30px rgba(16, 185, 129, 0.08), inset 0 0 30px rgba(16, 185, 129, 0.03)",
         }}
@@ -79,16 +91,25 @@ export default function ProjectCard({
         </p>
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-6">
           {techStack.map((tech) => (
             <span
               key={tech}
-              className="px-2.5 py-1 text-xs font-mono rounded-md bg-[#09090B] border border-border text-accent/80"
+              className="px-2.5 py-1 text-xs font-mono rounded-md bg-[#09090B] border border-border text-accent/80 backdrop-blur-sm"
             >
               {tech}
             </span>
           ))}
         </div>
+
+        {/* View Details Link */}
+        <Link
+          href={`/projects/${id}`}
+          className="inline-flex items-center gap-2 text-sm font-semibold font-mono text-foreground hover:text-accent transition-colors mt-auto w-fit group/link"
+        >
+          View Details
+          <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+        </Link>
       </div>
     </motion.div>
   );
