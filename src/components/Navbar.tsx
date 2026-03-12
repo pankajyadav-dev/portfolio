@@ -14,42 +14,53 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+// Extracted outside to prevent recalculating on every scroll
+const sectionIds = navLinks.map((l) => l.href.slice(1));
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState(sectionIds[0]); // Default to first section
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = navLinks.map((l) => l.href.slice(1));
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
+      let currentSection = "";
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
         if (el && el.getBoundingClientRect().top <= 120) {
-          setActiveSection(sections[i]);
+          currentSection = sectionIds[i];
           break;
         }
+      }
+
+      // Update only if a section is found and it's different from current
+      if (currentSection && currentSection !== activeSection) {
+        setActiveSection(currentSection);
+      } else if (window.scrollY < 100) {
+        // Reset to top section if scrolled all the way up
+        setActiveSection(sectionIds[0]);
       }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    // Call once on mount to set initial state
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [activeSection]);
 
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
-        ? "glass shadow-lg shadow-black/20"
-        : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? "glass shadow-lg shadow-black/20" : "bg-transparent"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <a href="/" className="flex items-center gap-2 group">
           <Terminal className="w-5 h-5 text-accent" />
           <span className="font-mono text-accent font-bold text-lg tracking-tight group-hover:text-accent-bright transition-colors">
             pankaj<span className="text-secondary">@</span>dev
@@ -64,8 +75,8 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${activeSection === link.href.slice(1)
-                ? "text-accent bg-glow"
-                : "text-secondary hover:text-accent hover:bg-glow"
+                  ? "text-accent bg-glow"
+                  : "text-secondary hover:text-accent hover:bg-glow"
                 }`}
             >
               {link.label}
@@ -99,8 +110,8 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className={`px-4 py-2.5 rounded-md text-sm font-medium transition-all ${activeSection === link.href.slice(1)
-                    ? "text-accent bg-glow"
-                    : "text-secondary hover:text-accent hover:bg-glow"
+                      ? "text-accent bg-glow"
+                      : "text-secondary hover:text-accent hover:bg-glow"
                     }`}
                 >
                   <span className="font-mono text-muted mr-2">~/</span>

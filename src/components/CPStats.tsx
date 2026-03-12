@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Github, Code2, ExternalLink } from "lucide-react";
 
 interface StatCardProps {
   platform: string;
   handle: string;
+  icon: React.ElementType;
   stats: { label: string; value: string; max?: number; current?: number }[];
   color: string;
   url: string;
@@ -13,7 +15,8 @@ interface StatCardProps {
 const statCards: StatCardProps[] = [
   {
     platform: "LeetCode",
-    handle: "@pankajyadav",
+    handle: "@pankajyadav-dev",
+    icon: Code2,
     color: "#FFA116",
     url: "https://leetcode.com/pankajyadav-dev",
     stats: [
@@ -24,6 +27,7 @@ const statCards: StatCardProps[] = [
   {
     platform: "GitHub",
     handle: "@pankajyadav-dev",
+    icon: Github,
     color: "#2ea043", // GitHub green
     url: "https://github.com/pankajyadav-dev",
     stats: [
@@ -44,18 +48,20 @@ function ProgressBar({
 }) {
   const percent = Math.min((current / max) * 100, 100);
   return (
-    <div className="w-full h-2 rounded-full bg-[#1a1a1f] overflow-hidden">
+    <div className="w-full h-2.5 rounded-full bg-background/60 overflow-hidden relative border border-white/5 shadow-inner">
       <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: `${percent}%` }}
         viewport={{ once: true }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="h-full rounded-full"
+        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+        className="h-full rounded-full relative"
         style={{
-          background: `linear-gradient(90deg, ${color}66, ${color})`,
-          boxShadow: `0 0 10px ${color}40`,
+          background: `linear-gradient(90deg, ${color}33, ${color})`,
+          boxShadow: `0 0 15px ${color}80, 0 0 5px ${color}`,
         }}
-      />
+      >
+        <div className="absolute right-0 top-0 bottom-0 w-2 bg-white/60 blur-[1px]" />
+      </motion.div>
     </div>
   );
 }
@@ -70,16 +76,18 @@ export default function CPStats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-16 flex items-center justify-between"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold font-mono text-accent mb-2">
-            <span className="text-muted mr-2">04.</span>stats_&_metrics
-          </h2>
-          <div className="h-px bg-gradient-to-r from-accent/50 to-transparent max-w-md" />
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-mono text-accent mb-2">
+              <span className="text-muted mr-2">04.</span>stats_&_metrics
+            </h2>
+            <div className="h-px bg-gradient-to-r from-accent/50 to-transparent max-w-md" />
+          </div>
         </motion.div>
 
         {/* Stat Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {statCards.map((card, cardIdx) => (
             <motion.a
               key={card.platform}
@@ -90,40 +98,43 @@ export default function CPStats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: cardIdx * 0.15 }}
-              className="group relative rounded-xl border border-border bg-card/50 overflow-hidden hover:border-accent/40 transition-all duration-300 block"
+              style={{ "--hover-color": `${card.color}40` } as React.CSSProperties}
+              className="group relative rounded-2xl border border-white/10 bg-card/20 backdrop-blur-md overflow-hidden hover:border-white/20 transition-all duration-500 block hover:-translate-y-1 shadow-lg hover:shadow-[0_0_40px_-10px_var(--hover-color)]"
             >
+              {/* Background Gradient Glow */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
+                style={{ background: `radial-gradient(circle at top right, ${card.color}, transparent 60%)` }}
+              />
+
+              {/* Top Highlight Line */}
+              <div className="absolute inset-x-0 h-px top-0 bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-white/20 transition-all duration-500" />
+
               {/* Dashboard Header */}
-              <div className="flex items-center justify-between p-5 border-b border-border">
-                <div className="flex items-center gap-3">
-                  {/* Status indicator */}
-                  <div
-                    className="w-3 h-3 rounded-full animate-pulse"
-                    style={{ backgroundColor: card.color }}
-                  />
-                  <div>
-                    <h3 className="font-mono font-bold text-foreground text-lg">
-                      {card.platform}
-                    </h3>
-                    <p className="text-xs font-mono text-muted">{card.handle}</p>
+              <div className="flex items-center justify-between p-6 border-b border-white/5 relative z-10">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-background/50 border border-white/5 group-hover:scale-110 transition-transform duration-500 shadow-inner group-hover:border-white/10">
+                    <card.icon className="w-6 h-6 drop-shadow-lg" style={{ color: card.color, filter: `drop-shadow(0 0 8px ${card.color}60)` }} />
                   </div>
-                </div>
-                {/* Terminal dots */}
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
+                  <div>
+                    <h3 className="font-bold text-foreground text-xl group-hover:text-white transition-colors flex items-center gap-2">
+                      {card.platform}
+                      <ExternalLink className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-muted group-hover:text-white" />
+                    </h3>
+                    <p className="text-sm font-mono text-muted group-hover:text-secondary transition-colors">{card.handle}</p>
+                  </div>
                 </div>
               </div>
 
               {/* Stats */}
-              <div className="p-5 space-y-5">
+              <div className="p-6 space-y-6 relative z-10">
                 {card.stats.map((stat) => (
-                  <div key={stat.label}>
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-secondary">{stat.label}</span>
+                  <div key={stat.label} className="group/stat">
+                    <div className="flex items-end justify-between mb-3">
+                      <span className="text-sm text-secondary font-medium tracking-wide group-hover/stat:text-white transition-colors">{stat.label}</span>
                       <span
-                        className="text-sm font-mono font-bold"
-                        style={{ color: card.color }}
+                        className="text-2xl font-mono font-bold transition-all duration-300 group-hover/stat:scale-105 origin-right"
+                        style={{ color: card.color, textShadow: `0 0 20px ${card.color}40` }}
                       >
                         {stat.value}
                       </span>
@@ -148,9 +159,13 @@ export default function CPStats() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="text-center text-xs text-muted font-mono mt-6"
+          className="text-center text-xs text-muted font-mono mt-8 group flex justify-center items-center gap-2"
         >
-          {"// click cards to view my profiles ↗"}
+          <span className="h-px w-8 bg-border"></span>
+          <span className="group-hover:text-accent transition-colors duration-300">
+            {"// click cards to view my profiles ↗"}
+          </span>
+          <span className="h-px w-8 bg-border"></span>
         </motion.p>
       </div>
     </section>

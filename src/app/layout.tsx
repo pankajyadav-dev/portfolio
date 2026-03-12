@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import GlobalBackground from "@/components/GlobalBackground";
+import SplashScreen from "@/components/SplashScreen";
 import "./globals.css";
 
 const inter = Inter({
@@ -47,6 +48,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-[#09090B] text-[#D4D4D8] relative`}
       >
+        <SplashScreen />
         <GlobalBackground />
         <div className="noise-overlay" />
         <div className="relative z-10 w-full h-full overflow-x-hidden">

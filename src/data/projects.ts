@@ -19,7 +19,7 @@ The system consists of two main microservices connected via a Redis stream:
 The core challenge in building IronJudge was securely running arbitrary code without relying on heavy VM hypervisors. It uses Linux-native isolation techniques:
 - **Namespaces (PID, Mount, UTS, NET):** Ensures the running code cannot see other processes on the host, cannot access the host filesystem (chroot), cannot view the hostname, and has no internet access.
 - **Cgroups v2:** Enforces strict limitations on memory consumption and CPU sharing. If a process exceeds its memory limit (e.g., 256MB), it is instantly OOM-killed.
-- **Seccomp BPF (Secure Computing Mode):** A whitelist of allowed system calls is applied to the untrusted process. Any attempt to use dangerous syscalls (like \`execve\`, \`ptrace\`, or \`fork\`) immediately terminates the process with a SIGKILL.
+- **Seccomp BPF (Secure Computing Mode):** A whitelist of allowed system calls is applied to the untrusted process. Any attempt to use dangerous syscalls (like execve, ptrace, or fork) immediately terminates the process with a SIGKILL.
 
 ### Performance
 Because it bypasses the overhead of spinning up entire Docker containers per submission, IronJudge can initialize a sandbox, compile C++, execute the binary, and tear down the environment in under 100 milliseconds.
