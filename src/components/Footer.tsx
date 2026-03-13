@@ -10,17 +10,17 @@ const socials = [
   },
   {
     label: "LinkedIn",
-    url: "https://linkedin.com/in/pankajyadav",
+    url: "https://linkedin.com/in/pankaj-yadav-dev",
     icon: Linkedin,
   },
   {
     label: "Twitter",
-    url: "https://twitter.com/pankajyadav",
+    url: "https://x.com/PankajY32816894",
     icon: Twitter,
   },
   {
     label: "Email",
-    url: "mailto:pankaj@example.com",
+    url: "mailto:yadavpankaj.tech@gmail.com",
     icon: Mail,
   },
 ];

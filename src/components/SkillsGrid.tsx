@@ -1,14 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PiSimCardThin } from "react-icons/pi";
 import {
   SiRust, SiTypescript, SiJavascript, SiCplusplus, SiPython,
   SiNextdotjs, SiReact, SiNodedotjs, SiTailwindcss, SiPrisma,
   SiDocker, SiRedis, SiPostgresql, SiMongodb, SiLinux, SiNginx,
-  SiGit, SiGithubactions, SiVercel, SiGnubash,
-  SiCloud66,
-  SiGooglecloudspanner,
+  SiGit, SiGithubactions, SiVercel, SiGnubash, SiTurborepo,
   SiClaude,
   SiGooglecloud
 } from "react-icons/si";
@@ -62,6 +59,7 @@ const categories: Category[] = [
       { name: "Zsh / Bash", Icon: SiGnubash },
       { name: "GitHub Actions", Icon: SiGithubactions },
       { name: "Vercel", Icon: SiVercel },
+      { name: "Turborepo", Icon: SiTurborepo }
     ],
   },
 ];

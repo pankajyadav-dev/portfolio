@@ -29,11 +29,17 @@ const achievements: Achievement[] = [
     description:
       "Shipped multiple production-grade applications including a competitive programming platform and an AI-powered resume builder.",
   },
+  // {
+  //   type: "Learning",
+  //   title: "Systems Programming in Rust",
+  //   description:
+  //     "Demonstrated proficiency in building low-level systems with Rust including process isolation, namespace management, and seccomp filtering.",
+  // },
   {
-    type: "Learning",
-    title: "Systems Programming in Rust",
+    type: "certificate",
+    title: "Cloud Computing",
     description:
-      "Demonstrated proficiency in building low-level systems with Rust including process isolation, namespace management, and seccomp filtering.",
+      "Certified in cloud architectures, virtualization, distributed systems, and resource management by IIT Kharagpur.",
   },
 ];
 
