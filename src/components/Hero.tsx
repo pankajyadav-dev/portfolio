@@ -27,27 +27,27 @@ export default function Hero() {
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         {/* Profile Image */}
+
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, type: "spring" }}
           className="mb-8 flex justify-center"
         >
-          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full p-1 border-2 border-accent/50 bg-card/50 backdrop-blur-sm shadow-[0_0_30px_rgba(16,185,129,0.15)] overflow-hidden group">
+          <div className="relative w-42 h-42 md:w-60 md:h-60 rounded-full p-1 border-2 border-accent/50 bg-card/50 backdrop-blur-sm shadow-[0_0_30px_rgba(37,99,235,0.15)] overflow-hidden group">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              src="/profile.jpg" 
-              alt="Pankaj Yadav" 
+            <img
+              src="/pankaj.png"
+              alt="Pankaj Yadav"
               className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500 bg-muted/20"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.onerror = null; // Prevent infinite loop if fallback fails
-                target.src = "https://ui-avatars.com/api/?name=Pankaj+Yadav&background=0D0D0D&color=10B981&size=256";
+                target.src = "https://ui-avatars.com/api/?name=Pankaj+Yadav&background=0D0D0D&color=2563EB&size=256";
               }}
             />
           </div>
         </motion.div>
-
         {/* Terminal prompt */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 mb-8"
         >
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-terminal animate-pulse" />
           <span className="text-sm font-mono text-secondary">
             ~/pankaj-yadav
           </span>
@@ -81,7 +81,7 @@ export default function Hero() {
           className="mb-10"
         >
           <div className="inline-flex items-center gap-2 text-lg sm:text-xl font-mono">
-            <span className="text-accent">❯</span>
+            <span className="text-secondary">❯</span>
             <TypeAnimation
               sequence={[
                 "Software Engineer",
@@ -97,7 +97,7 @@ export default function Hero() {
               wrapper="span"
               speed={40}
               repeat={Infinity}
-              className="text-accent-bright"
+              className="text-secondary"
             />
           </div>
         </motion.div>
@@ -121,7 +121,7 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="group flex items-center gap-2 px-8 py-3.5 bg-accent text-[#09090B] font-semibold rounded-lg hover:bg-accent-bright transition-all duration-300 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]"
+            className="group flex items-center gap-2 px-8 py-3.5 bg-accent text-[#09090B] font-semibold rounded-lg hover:bg-accent-bright transition-all duration-300 hover:shadow-[0_0_30px_rgba(37,99,235,0.3)]"
           >
             View Work
             <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />

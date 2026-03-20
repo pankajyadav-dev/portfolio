@@ -66,17 +66,16 @@ export default function Navbar() {
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-                isScrolled
-                    ? "glass shadow-lg shadow-black/20"
-                    : "bg-transparent"
-            }`}
+            className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
+                ? "glass shadow-lg shadow-black/20"
+                : "bg-transparent"
+                }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
-                    <Terminal className="w-5 h-5 text-accent" />
-                    <span className="font-mono text-accent font-bold text-lg tracking-tight group-hover:text-accent-bright transition-colors">
+                    <Terminal className="w-5 h-5 text-secondary" />
+                    <span className="font-mono text-secondary font-bold text-lg tracking-tight group-hover:text-terminal-bright transition-colors">
                         pankaj<span className="text-secondary">@</span>dev
                     </span>
                     <span className="animate-cursor-blink text-accent font-mono">
@@ -96,11 +95,10 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                                    isActive
-                                        ? "text-accent bg-glow"
-                                        : "text-secondary hover:text-accent hover:bg-glow"
-                                }`}
+                                className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isActive
+                                    ? "text-accent bg-glow"
+                                    : "text-secondary hover:text-accent hover:bg-glow"
+                                    }`}
                             >
                                 {link.label}
                             </Link>
@@ -142,11 +140,10 @@ export default function Navbar() {
                                         key={link.href}
                                         href={link.href}
                                         onClick={() => setMobileOpen(false)}
-                                        className={`px-4 py-2.5 rounded-md text-sm font-medium transition-all ${
-                                            isActive
-                                                ? "text-accent bg-glow"
-                                                : "text-secondary hover:text-accent hover:bg-glow"
-                                        }`}
+                                        className={`px-4 py-2.5 rounded-md text-sm font-medium transition-all ${isActive
+                                            ? "text-accent bg-glow"
+                                            : "text-secondary hover:text-accent hover:bg-glow"
+                                            }`}
                                     >
                                         <span className="font-mono text-muted mr-2">
                                             ~/

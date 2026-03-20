@@ -32,7 +32,7 @@ export default function About() {
           >
             <div className="relative group">
               {/* Glow border */}
-              <div className="absolute -inset-1 bg-gradient-to-br from-accent to-accent-dim rounded-xl blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-br from-terminal to-terminal-dim rounded-xl blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
               {/* Image container */}
               <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-xl overflow-hidden border border-border bg-card">
                 {/* Terminal-style avatar placeholder */}
@@ -47,20 +47,20 @@ export default function About() {
                   {/* Terminal content */}
                   <div className="w-full flex-1 bg-[#09090B] rounded-b-md border border-t-0 border-border p-3 font-mono text-xs space-y-1.5">
                     <p className="text-muted">
-                      <span className="text-accent">❯</span> whoami
+                      <span className="text-terminal">❯</span> whoami
                     </p>
-                    <p className="text-accent-bright">pankaj-yadav</p>
+                    <p className="text-terminal-bright">pankaj-yadav</p>
                     <p className="text-muted mt-2">
-                      <span className="text-accent">❯</span> cat role.txt
+                      <span className="text-terminal">❯</span> cat role.txt
                     </p>
                     <p className="text-foreground">Software Engineer</p>
                     <p className="text-muted mt-2">
-                      <span className="text-accent">❯</span> echo $PASSION
+                      <span className="text-terminal">❯</span> echo $PASSION
                     </p>
                     <p className="text-foreground">Building from scratch</p>
                     <p className="text-muted mt-2">
-                      <span className="text-accent">❯</span>{" "}
-                      <span className="animate-cursor-blink text-accent">▋</span>
+                      <span className="text-terminal">❯</span>{" "}
+                      <span className="animate-cursor-blink text-terminal">▋</span>
                     </p>
                   </div>
                 </div>

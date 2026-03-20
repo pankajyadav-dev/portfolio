@@ -48,7 +48,7 @@ export default function SplashScreen() {
         >
           {/* Subtle background glow */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-96 h-96 bg-accent/10 rounded-full blur-[100px] animate-pulse" />
+            <div className="w-96 h-96 bg-terminal/10 rounded-full blur-[100px] animate-pulse" />
           </div>
 
           <motion.div
@@ -59,12 +59,12 @@ export default function SplashScreen() {
           >
             {/* Logo animation */}
             <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-card border border-white/10 shadow-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent opacity-50" />
-              <Terminal className="w-10 h-10 text-accent animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-terminal/20 to-transparent opacity-50" />
+              <Terminal className="w-10 h-10 text-terminal animate-pulse" />
 
               {/* Scanning line */}
               <motion.div
-                className="absolute left-0 right-0 h-0.5 bg-accent/50 blur-[1px]"
+                className="absolute left-0 right-0 h-0.5 bg-terminal/50 blur-[1px]"
                 animate={{ top: ["0%", "100%", "0%"] }}
                 transition={{ duration: 1, ease: "linear", repeat: Infinity }}
               />
@@ -73,15 +73,15 @@ export default function SplashScreen() {
             {/* Terminal specific loading text */}
             <div className="flex flex-col items-center gap-3">
               <div className="flex items-center gap-2 font-mono text-lg font-semibold tracking-tight">
-                <span className="text-accent">pankaj</span>
+                <span className="text-terminal">pankaj</span>
                 <span className="text-secondary">@</span>
                 <span>portfolio</span>
               </div>
 
               <div className="h-6 flex items-center justify-center font-mono text-sm text-muted">
-                <span className="mr-2 text-accent">{">"}</span>
+                <span className="mr-2 text-terminal">{">"}</span>
                 {loadingTexts[textIndex]}
-                <span className="ml-1 animate-cursor-blink text-accent">▋</span>
+                <span className="ml-1 animate-cursor-blink text-terminal">▋</span>
               </div>
             </div>
 
@@ -91,7 +91,7 @@ export default function SplashScreen() {
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
-                className="h-full bg-accent relative"
+                className="h-full bg-terminal relative"
               >
                 <div className="absolute right-0 top-0 bottom-0 w-4 bg-white/50 blur-[2px]" />
               </motion.div>

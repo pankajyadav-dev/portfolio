@@ -20,8 +20,8 @@ const statCards: StatCardProps[] = [
     color: "#FFA116",
     url: "https://leetcode.com/pankajyadav-dev",
     stats: [
-      { label: "Problems Solved", value: "300+", max: 3000, current: 300 },
-      { label: "Max Streak", value: "45 days", max: 365, current: 45 },
+      { label: "Problems Solved", value: "350+", max: 3000, current: 350 },
+      { label: "Max Streak", value: "55 days", max: 365, current: 55 },
     ],
   },
   {
@@ -31,8 +31,8 @@ const statCards: StatCardProps[] = [
     color: "#2ea043", // GitHub green
     url: "https://github.com/pankajyadav-dev",
     stats: [
-      { label: "Repositories", value: "11+", max: 20, current: 11 },
-      { label: "Contributions (Year)", value: "700+", max: 1000, current: 720 },
+      { label: "Repositories", value: "13+", max: 20, current: 13 },
+      { label: "Contributions (Year)", value: "800+", max: 1000, current: 800 },
     ],
   },
 ];

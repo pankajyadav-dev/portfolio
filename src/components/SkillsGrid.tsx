@@ -128,7 +128,7 @@ export default function SkillsGrid() {
                     {cat.skills.map((skill, i) => (
                       <span
                         key={skill.name}
-                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#09090B] border border-border text-foreground hover:text-accent-bright text-xs font-mono hover:border-accent/50 hover:shadow-[0_0_10px_rgba(16,185,129,0.1)] transition-all cursor-default"
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#09090B] border border-border text-foreground hover:text-accent-bright text-xs font-mono hover:border-accent/50 hover:shadow-[0_0_10px_rgba(37,99,235,0.1)] transition-all cursor-default"
                       >
                         <skill.Icon className="w-3.5 h-3.5" />
                         &apos;{skill.name}&apos;

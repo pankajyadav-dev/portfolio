@@ -123,7 +123,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status !== "idle"}
-            className="group w-full flex items-center justify-center gap-2 px-8 py-3.5 bg-accent text-[#09090B] font-semibold rounded-lg hover:bg-accent-bright transition-all duration-300 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] disabled:opacity-60 disabled:cursor-not-allowed"
+            className="group w-full flex items-center justify-center gap-2 px-8 py-3.5 bg-accent text-[#09090B] font-semibold rounded-lg hover:bg-accent-bright transition-all duration-300 hover:shadow-[0_0_30px_rgba(37,99,235,0.3)] disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {status === "idle" && (
               <>

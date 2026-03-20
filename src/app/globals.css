@@ -14,12 +14,17 @@
   --text-primary: #D4D4D8;
   --text-secondary: #A1A1AA;
   --text-muted: #71717A;
+  --accent: #2563EB;
+  --accent-bright: #3B82F6;
+  --accent-dim: #1D4ED8;
+  --accent-glow: rgba(37, 99, 235, 0.15);
+  --accent-glow-strong: rgba(37, 99, 235, 0.3);
 
-  --accent: #10B981;
-  --accent-bright: #00FF41;
-  --accent-dim: #059669;
-  --accent-glow: rgba(16, 185, 129, 0.15);
-  --accent-glow-strong: rgba(16, 185, 129, 0.3);
+  --terminal-accent: #10B981;
+  --terminal-accent-bright: #00FF41;
+  --terminal-accent-dim: #059669;
+  --terminal-accent-glow: rgba(16, 185, 129, 0.15);
+  --terminal-accent-glow-strong: rgba(16, 185, 129, 0.3);
 
   --border: #27272A;
   --border-hover: #3f3f46;
@@ -34,6 +39,9 @@
   --color-accent: var(--accent);
   --color-accent-bright: var(--accent-bright);
   --color-accent-dim: var(--accent-dim);
+  --color-terminal: var(--terminal-accent);
+  --color-terminal-bright: var(--terminal-accent-bright);
+  --color-terminal-dim: var(--terminal-accent-dim);
   --color-card: var(--bg-card);
   --color-card-hover: var(--bg-card-hover);
   --color-input: var(--bg-input);
@@ -43,6 +51,8 @@
   --color-secondary: var(--text-secondary);
   --color-glow: var(--accent-glow);
   --color-glow-strong: var(--accent-glow-strong);
+  --color-terminal-glow: var(--terminal-accent-glow);
+  --color-terminal-glow-strong: var(--terminal-accent-glow-strong);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 }
@@ -159,7 +169,7 @@ body {
 
 .terminal-prompt::before {
   content: "❯ ";
-  color: var(--accent);
+  color: var(--terminal-accent);
   font-family: var(--font-mono), monospace;
   font-weight: 700;
 }
