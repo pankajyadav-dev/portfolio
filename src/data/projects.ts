@@ -2,11 +2,32 @@ import { motion } from "framer-motion";
 
 export const projectsData = [
   {
+    id: "chitra",
+    title: "Chitra",
+    highlight: "AI/ML Context Optimization CLI Tool",
+    description: "Architect a high-performance codebase context-resolution CLI in Rust, utilizing Tree-sitter for Abstract Syntax Tree parsing to build a blazing-fast, vectorless Agentic RAG pipeline.",
+    content: `
+Chitra is an AI/ML Context Optimization CLI Tool. 
+
+### Architecture
+Architect a high-performance codebase context-resolution CLI in Rust, utilizing Tree-sitter for Abstract Syntax Tree parsing to build a blazing-fast, vectorless Agentic RAG pipeline.
+
+### Investigation Loop
+Implement an autonomous investigation loop where local, on-device LLMs execute native tools (ripgrep, AST extraction) to dynamically map dependencies without heavy static indexing.
+
+### Optimization
+Optimize Large Language Model token consumption and API costs by synthesizing raw codebase logic into highly compressed, targeted prompt payloads, maximizing the accuracy of flagship models.
+    `,
+    techStack: ["Rust", "Tree-sitter", "Local LLMs", "Agentic RAG"], 
+    githubUrl: "https://github.com/pankajyadav-dev/chitra",
+    liveUrl: "",
+    bgAnimationType: "neural"
+  },
+  {
     id: "ironjudge",
     title: "IronJudge",
     highlight: "⚔️ Sandboxed Execution Engine",
-    description:
-      "A blazing-fast, sandboxed code execution engine built in Rust. Executes untrusted code securely using Linux namespaces, cgroups v2, chroot & seccomp. Features async job pipeline via Redis Streams, multi-language support (C++, Rust, Java, Python, JS, TS)",
+    description: "A blazing-fast, sandboxed code execution engine built in Rust. Executes untrusted code securely using Linux namespaces, cgroups v2, chroot & seccomp. Features async job pipeline via Redis Streams, multi-language support (C++, Rust, Java, Python, JS, TS)",
     content: `
 IronJudge is a production-ready, highly scalable, and secure code execution engine built entirely in Rust. It is designed to act as the core backend for competitive programming platforms, online IDEs, and interview tools where untrusted user code needs to be executed safely.
 
@@ -27,14 +48,13 @@ Because it bypasses the overhead of spinning up entire Docker containers per sub
     techStack: ["Rust", "Axum", "Redis", "Docker", "Linux", "seccomp"],
     githubUrl: "https://github.com/pankajyadav-dev/ironjudge",
     liveUrl: "https://ironjudge.1000xdevs.dev/",
-    bgAnimationType: "engine",
+    bgAnimationType: "engine"
   },
   {
     id: "xforces",
     title: "xForces",
     highlight: "🏆 Competitive Programming Platform",
-    description:
-      "A high-performance competitive programming platform designed to host coding contests, practice problems, and provide real-time code execution. Features a microservices architecture with Next.js frontend, Redis message queue, and Docker-based sandboxing.",
+    description: "A high-performance competitive programming platform designed to host coding contests, practice problems, and provide real-time code execution. Features a microservices architecture with Next.js frontend, Redis message queue, and Docker-based sandboxing.",
     content: `
 xForces is a modern alternative to traditional competitive programming websites. It provides a sleek, fast, and feature-rich interface for hosting and participating in algorithmic coding contests.
 
@@ -53,34 +73,6 @@ The platform emphasizes speed. The split-pane UI allows users to read the proble
     techStack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Redis", "Docker"],
     githubUrl: "https://github.com/pankajyadav-dev/xforces",
     liveUrl: "https://xforces.1000xdevs.dev/",
-    bgAnimationType: "algo",
-  },
-  {
-    id: "airesumebuilder",
-    title: "AI Resume Builder",
-    highlight: "🤖 AI-Powered Tool",
-    description:
-      "An advanced web application for creating professional resumes with AI. Features Gemini-powered resume generation, ATS compatibility checker, grammar analysis, originality detection, multiple professional templates, and a Google Docs-like rich text editor.",
-    content: `
-The AI Resume Builder was created to solve a common problem: formatting a resume and writing compelling bullet points is tedious and time-consuming. This tool leverages the power of Large Language Models to automate the process while ensuring the output remains highly professional and ATS-friendly.
-
-### AI Integration
-The core engine utilizes the Google Gemini API. When a user inputs their raw experience (or even just bullet points of what they did), the AI parses the information, enriches the vocabulary, quantifies achievements where possible, and reformats it into high-impact action statements suitable for top-tier tech companies.
-
-### Analysis Tools
-Beyond just generation, the platform acts as an active reviewer:
-- **ATS Checker:** Analyzes the final document against common Applicant Tracking System parsing rules to ensure keywords map correctly and formatting doesn't break parsers.
-- **Originality/Cliché Detector:** Flags overused buzzwords (like "hardworking team player") and suggests stronger action verbs.
-
-### Editor Design
-The frontend, built entirely in React, features a WYSIWYG (What You See Is What You Get) editor. Users can instantly preview how their resume looks across 8 different professional templates (from Minimalist to Executive) without losing any of their data.
-
-### Authentication & Storage
-User sessions are managed securely using JWTs stored in HTTP-only cookies. Resumes are saved to MongoDB in real-time, allowing users to return later, duplicate existing resumes, or maintain multiple versions tailored for different job applications.
-    `,
-    techStack: ["React", "Next.js", "MongoDB", "Gemini AI", "Tailwind CSS"],
-    githubUrl: "https://github.com/pankajyadav-dev/airesumebuilder",
-    liveUrl: "https://callbackticket.1000xdevs.dev/",
-    bgAnimationType: "neural",
-  },
+    bgAnimationType: "algo"
+  }
 ];
