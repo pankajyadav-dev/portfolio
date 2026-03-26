@@ -78,7 +78,7 @@ export default function ContactForm() {
               name="name"
               type="text"
               required
-              placeholder="John Doe"
+              placeholder="Enter your name"
               className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted/50 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300"
             />
           </div>
@@ -96,7 +96,7 @@ export default function ContactForm() {
               name="email"
               type="email"
               required
-              placeholder="john@example.com"
+              placeholder="Enter your email address"
               className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted/50 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300"
             />
           </div>
@@ -114,7 +114,7 @@ export default function ContactForm() {
               name="message"
               required
               rows={5}
-              placeholder="Your message..."
+              placeholder="Enter your message..."
               className="w-full px-4 py-3 rounded-lg bg-input border border-border text-foreground placeholder:text-muted/50 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 resize-none"
             />
           </div>
